@@ -1,4 +1,4 @@
-package com.example.jwt.demo.domain.model;
+package com.example.pact.provider.domain.model;
 
 import lombok.Data;
 

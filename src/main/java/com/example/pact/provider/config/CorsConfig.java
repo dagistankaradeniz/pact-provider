@@ -1,4 +1,4 @@
-package com.example.jwt.demo.config;
+package com.example.pact.provider.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

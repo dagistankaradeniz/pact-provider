@@ -1,4 +1,4 @@
-package com.example.jwt.demo;
+package com.example.pact.provider;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
