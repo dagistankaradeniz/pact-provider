@@ -1,4 +1,4 @@
-package com.example.pact.provider;
+package com.example.pact.provider.pacts;
 
 import au.com.dius.pact.provider.junit.PactRunner;
 import au.com.dius.pact.provider.junit.Provider;
@@ -7,24 +7,22 @@ import au.com.dius.pact.provider.junit.loader.PactBroker;
 import au.com.dius.pact.provider.junit.target.HttpTarget;
 import au.com.dius.pact.provider.junit.target.Target;
 import au.com.dius.pact.provider.junit.target.TestTarget;
+import com.example.pact.provider.ProviderDemoApplication;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.springframework.boot.SpringApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 
 @RunWith(PactRunner.class)
 @Provider("pact-provider")
 @PactBroker(host="${pactbroker.hostname:localhost}", port = "8080")
-public class PactTest {
-
-	private static ConfigurableApplicationContext application;
+public class ConsumerPactTest {
 
 	@TestTarget
 	public final Target target = new HttpTarget(8888);
 
 	@BeforeClass
 	public static void startSpring(){
-		application = SpringApplication.run(ProviderDemoApplication.class);
+		SpringApplication.run(ProviderDemoApplication.class);
 	}
 
 	@State({"default", "extra"})

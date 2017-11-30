@@ -1,3 +1,3 @@
-# Pact-producer
+# Pact-provider
 
-Producer application for PACT-demo
+Provider application for PACT-demo
