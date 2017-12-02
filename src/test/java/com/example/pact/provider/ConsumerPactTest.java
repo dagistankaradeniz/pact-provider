@@ -1,5 +1,6 @@
 package com.example.pact.provider;
 
+import au.com.dius.pact.provider.junit.IgnoreNoPactsToVerify;
 import au.com.dius.pact.provider.junit.PactRunner;
 import au.com.dius.pact.provider.junit.Provider;
 import au.com.dius.pact.provider.junit.State;
@@ -13,6 +14,7 @@ import org.springframework.boot.SpringApplication;
 
 @RunWith(PactRunner.class)
 @Provider("pact-provider")
+@IgnoreNoPactsToVerify
 @PactBroker(host="${pactbroker.hostname:localhost}", port = "8080")
 public class ConsumerPactTest {
 
