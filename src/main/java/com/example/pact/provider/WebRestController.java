@@ -21,9 +21,4 @@ public class WebRestController {
         personRepository.add(person);
         return person;
     }
-
-    @GetMapping(value = "/{ssn}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Person getPerson(@PathVariable("ssn") String ssn) {
-        return personRepository.getBySSn(ssn);
-    }
 }
