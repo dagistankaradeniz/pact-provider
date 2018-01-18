@@ -33,7 +33,7 @@ dependencies {
 	compile("io.springfox:springfox-swagger-ui:${springfoxVersion}")
 
 	// Pact
-	compile('au.com.dius:pact-jvm-provider-junit_2.12:3.5.10')
+	testCompile("au.com.dius:pact-jvm-provider-spring_2.12:3.5.11")
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	runtime('com.h2database:h2')

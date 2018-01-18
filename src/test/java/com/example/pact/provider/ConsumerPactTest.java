@@ -1,33 +1,37 @@
 package com.example.pact.provider;
 
 import au.com.dius.pact.provider.junit.IgnoreNoPactsToVerify;
-import au.com.dius.pact.provider.junit.PactRunner;
 import au.com.dius.pact.provider.junit.Provider;
 import au.com.dius.pact.provider.junit.State;
 import au.com.dius.pact.provider.junit.loader.PactBroker;
 import au.com.dius.pact.provider.junit.target.HttpTarget;
 import au.com.dius.pact.provider.junit.target.Target;
 import au.com.dius.pact.provider.junit.target.TestTarget;
-import org.junit.BeforeClass;
+import au.com.dius.pact.provider.spring.SpringRestPactRunner;
 import org.junit.runner.RunWith;
-import org.springframework.boot.SpringApplication;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
-@RunWith(PactRunner.class)
+@RunWith(SpringRestPactRunner.class)
 @Provider("pact-provider")
 @IgnoreNoPactsToVerify
-@PactBroker(host="${pactbroker.hostname:localhost}", port = "8080")
+@PactBroker(host = "localhost", port = "3000")
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class ConsumerPactTest {
 
 	@TestTarget
 	public final Target target = new HttpTarget(8888);
 
-	@BeforeClass
-	public static void startSpring(){
-		SpringApplication.run(ProviderDemoApplication.class);
-	}
+	@Autowired
+	private PersonRepository personRepository;
 
 	@State({"default", "extra"})
 	public void toDefaultState() {
 		System.out.println("Now service in default state");
+	}
+
+	@State("Person with SSN(71039012345) exists")
+	public void personWithIdExist() {
+		personRepository.add(new Person(null, "Roger Test", "71039012345", null));
 	}
 }
