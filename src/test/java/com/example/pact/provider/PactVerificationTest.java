@@ -17,7 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @IgnoreNoPactsToVerify
 @PactBroker(host = "localhost", port = "3000")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class ConsumerPactTest {
+public class PactVerificationTest {
 
 	@TestTarget
 	public final Target target = new HttpTarget(8888);
