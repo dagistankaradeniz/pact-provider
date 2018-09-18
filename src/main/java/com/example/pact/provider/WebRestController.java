@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping(value = "/person/v1")
+@RequestMapping(value = "/v1/person")
 public class WebRestController {
 
     @Autowired
