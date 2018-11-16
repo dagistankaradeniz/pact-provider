@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping(value = "/v1/person")
+@RequestMapping
 public class WebRestController {
 
     @Autowired
     private PersonRepository personRepository;
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PostMapping(value = "/v1/person", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Person createPerson(@RequestBody Person person) {
         personRepository.add(person);
         return person;
