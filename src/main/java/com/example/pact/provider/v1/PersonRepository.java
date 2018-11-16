@@ -1,5 +1,6 @@
-package com.example.pact.provider;
+package com.example.pact.provider.v1;
 
+import com.example.pact.provider.SsnValidator;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;

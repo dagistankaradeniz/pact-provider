@@ -1,4 +1,4 @@
-package com.example.pact.provider;
+package com.example.pact.provider.v1;
 
 import lombok.Builder;
 import lombok.Data;
